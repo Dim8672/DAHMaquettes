@@ -1,3 +1,18 @@
+// Initialisation du localStorage
+localStorage.setItem('domain', 'all');
+localStorage.setItem('size', 'all');
+localStorage.setItem('start', $('#daterangeStartEnd').text().substring(0,10));
+localStorage.setItem('end', $('#daterangeStartEnd').text().substring(13,24));
+localStorage.setItem('CustomerExperience', true);
+localStorage.setItem('Product', true);
+localStorage.setItem('Strategy', true);
+localStorage.setItem('Organisation', true);
+localStorage.setItem('Process', true);
+localStorage.setItem('Collaboration', true);
+localStorage.setItem('Information', true);
+localStorage.setItem('Culture', true);
+localStorage.setItem('Transformation', true);
+
 Chart.plugins.unregister(ChartDataLabels);
 var data = d3.json('DonneesTraitees.json');
 console.log(data);
