@@ -32,7 +32,6 @@
 				backgroundColor: '#11ffee00',
 				borderColor: presets.orange,
 				data: generateData(),
-				hidden: true,
 				label: 'Banque',
 				fill: 1
 			}, {
@@ -59,6 +58,11 @@
 				'samples-filler-analyser': {
 					target: 'chart-analyser'
 				}
+			},
+			scale: {
+				ticks: {
+					backdropColor: '#D3D3D3' // should render black behind the text
+					}
 			}
 		};
 

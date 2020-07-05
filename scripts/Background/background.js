@@ -1,29 +1,34 @@
 $(document).ready(function(){
     $('#domain').change(function(){
          localStorage.setItem('domain', $(this).val());
+		 reloadCharts();
     });
 	
 	$('#size').change(function(){
          localStorage.setItem('size', $(this).val());
+		 reloadCharts();
     });
 	
 	$('#size').change(function(){
          localStorage.setItem('size', $(this).val());
+		 reloadCharts();
     });
 	
 	$('#daterangeStartEnd').on('DOMSubtreeModified',function(){
          localStorage.setItem('start', $('#daterangeStartEnd').text().substring(0,10));
 		 localStorage.setItem('end', $('#daterangeStartEnd').text().substring(13,24));
+		 reloadCharts();
     });
 	
 	$('#customerClik').click(function() {
-		if(JSON.parse(localStorage.getItem('customer'))){
-			localStorage.setItem('customer', false);
+		if(JSON.parse(localStorage.getItem('CustomerExperience'))){
+			localStorage.setItem('CustomerExperience', false);
 			$('#customerClik').css('filter', 'opacity(20%)');
 		} else {
-			localStorage.setItem('customer', true);
+			localStorage.setItem('CustomerExperience', true);
 			$('#customerClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#ProductClik').click(function() {
@@ -34,6 +39,7 @@ $(document).ready(function(){
 			localStorage.setItem('Product', true);
 			$('#ProductClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#StrategyClik').click(function() {
@@ -44,6 +50,7 @@ $(document).ready(function(){
 			localStorage.setItem('Strategy', true);
 			$('#StrategyClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#OrganisationClik').click(function() {
@@ -54,6 +61,7 @@ $(document).ready(function(){
 			localStorage.setItem('Organisation', true);
 			$('#OrganisationClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#ProcessClik').click(function() {
@@ -64,6 +72,7 @@ $(document).ready(function(){
 			localStorage.setItem('Process', true);
 			$('#ProcessClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#CollaborationClik').click(function() {
@@ -74,6 +83,7 @@ $(document).ready(function(){
 			localStorage.setItem('Collaboration', true);
 			$('#CollaborationClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#InformationClik').click(function() {
@@ -84,6 +94,7 @@ $(document).ready(function(){
 			localStorage.setItem('Information', true);
 			$('#InformationClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#CultureClik').click(function() {
@@ -94,6 +105,7 @@ $(document).ready(function(){
 			localStorage.setItem('Culture', true);
 			$('#CultureClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 	
 	$('#TransformationClik').click(function() {
@@ -104,5 +116,6 @@ $(document).ready(function(){
 			localStorage.setItem('Transformation', true);
 			$('#TransformationClik').css('filter', 'opacity(100%)');
 		}
+		reloadCharts();
 	});
 });
