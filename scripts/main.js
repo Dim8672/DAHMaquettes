@@ -12,10 +12,10 @@ localStorage.setItem('Collaboration', true);
 localStorage.setItem('Information', true);
 localStorage.setItem('Culture', true);
 localStorage.setItem('Transformation', true);
+localStorage.setItem('NumberDimension', 9);
 
 Chart.plugins.unregister(ChartDataLabels);
 var data = d3.json('DonneesTraitees.json');
-console.log(data);
 moment.locale('fr');
 var french_daterangepicker ={
 	'direction': 'ltr',

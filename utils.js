@@ -11,18 +11,20 @@ window.chartColors = {
 };
 
 (function(global) {
-	var DIMENSION = [
-		'Customer Experience',
-		'Production Innovation',
-		'Strategy',
-		'Organisation',
-		'Process Digitalisation',
-		'Collaboration',
-		'Information Technology',
-		'Culture & Expertise',
-		'Transformation Management'
-	];
-
+	 // var DIMENSION = [
+		// 'Customer Experience' ,
+		// 'Production Innovation',
+		// 'Strategy',
+		// 'Organisation',
+		// 'Process Digitalisation',
+		// 'Collaboration',
+		// 'Information Technology',
+		// 'Culture & Expertise',
+		// 'Transformation Management'
+	// ];
+	
+	var DIMENSION = JSON.parse(localStorage.getItem('choosenDimensions'));
+	console.log(DIMENSION);
 	var COLORS = [
 		'#4dc9f6',
 		'#f67019',
@@ -74,7 +76,6 @@ window.chartColors = {
 			for (i = 0; i < cfg.count; ++i) {
 				//value = (cfg.from[i] || 0) + this.rand(cfg.min, cfg.max);
 				value = Math.floor(Math.random() * 6);
-				console.log(this.rand());
 				if (this.rand() <= cfg.continuity) {
 					data.push(Math.round(value));
 				} else {
@@ -111,7 +112,6 @@ window.chartColors = {
 			var section = cfg.section;
 			var values = [];
 			var i, value;
-			console.log(count);
 			for (i = 0; i < count; ++i) {
 				value = DIMENSION[Math.ceil(i) % 12];
 				values.push(value.substring(0, section));

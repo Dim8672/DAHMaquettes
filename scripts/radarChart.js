@@ -3,7 +3,7 @@
 		var inputs = {
 			min: 0,
 			max: 5,
-			count: 9,
+			count: JSON.parse(localStorage.getItem('NumberDimension')),
 			decimals: 0,
 			continuity: 1
 		};
@@ -72,6 +72,11 @@
 			options: options
 		});
 
+		function updateRadar(){
+			chart.data.datasets[0].data = chart.data.datasets[0].data;
+			chart.data.labels = JSON.parse(localStorage.getItem('choosenDimensions'));
+			chart.update();
+		}
 		// eslint-disable-next-line no-unused-vars
 		function togglePropagate(btn) {
 			var value = btn.classList.toggle('btn-on');
