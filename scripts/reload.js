@@ -1,9 +1,3 @@
-function reloadScripts(src){
-	src = $('script[src$="' + src + '"]').attr("src");
-    $('script[src$="' + src + '"]').remove();
-    $('<script/>').attr('src', src).appendTo('head');
-}
-
 function reloadCharts() {
 	var state = getState();
 	numberOfDimension();
@@ -98,13 +92,14 @@ function getState(){
 		Transformation : localStorage.getItem('Transformation'),
 		Strategy : localStorage.getItem('Strategy'),
 		Product : localStorage.getItem('Product'),
-		Political : localStorage.getItem('Political'),
+		Political : JSON.parse(localStorage.getItem('Political')),
 		NumberOfDimension : numberOfDimension()
 	}
 	
 	console.log(localStorageValues);
 	
-	if(localStorageValues.Political === 'all') {
+	if(localStorageValues.Political === true) {
+		console.log("Etat : Politique");
 		return 'Political';
 	}
 	

@@ -68,7 +68,3 @@ var randomScalingFactor = function() {
 			}
 		};
 
-		window.onload = function() {
-			var ctx = document.getElementById('chart-area');
-			window.myPolarArea = new Chart(ctx, config);
-		};

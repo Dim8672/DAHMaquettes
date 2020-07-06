@@ -12,11 +12,13 @@
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/tooltip.css">
+  <link rel="stylesheet" href="styles/toogle.css">
   <!--  <link rel="stylesheet" href="styles/head.css">-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+  
   <!-- endbuild -->
   <!-- build:js scripts/modernizr.js -->
   
@@ -48,7 +50,15 @@
       <div class="navbar-inner">
         <a href="index.html" class="brand" style="color : green;">Digital Arc Hub - Cartographie</a>
       </div>
-    </div>
+	  <span class="navbar-text">
+      Passer en mode politique
+	  <label class="switch">
+		<input type="checkbox">
+		<span id="modeType" class="slider round"></span>
+		</label>
+    </span>
+	  
+	  </div>
   </header>
   <div class="header" style="background-color : #D3D3D3;">
   <div class="marginDiv">
@@ -168,7 +178,6 @@
 </div>
 <p></p>
 <hr style="border: 1px solid black; background-color : black;" />
-
 <!-- Etat General -->
 <div id="General" class="row">
     <div class="col-lg-6">
@@ -202,6 +211,7 @@
 	<div class="col-lg-1"></div>
 </div>
 
+<!-- Etat Political -->
 <div id="Political" class="row">
 
 <div class="col-lg-6">
@@ -228,10 +238,12 @@
 <script src="scripts/reload.js"></script>
 <script src="scripts/Background/background.js"></script>
 <script src="scripts/main.js"></script>
-<script src="scripts/stackedBar.js"></script>
+
 <script src="scripts/map.js"></script>
 <script src="scripts/polarArea.js"></script>
 <script type="text/javascript" src="scripts/radarChart.js"></script>
+<script src="scripts/stackedBar.js"></script>
+<script src="scripts/Background/OnLoadCharts.js"></script>
 
 <!--<script src="scripts/radarChart.js"></script>-->
 <!-- endbuild -->

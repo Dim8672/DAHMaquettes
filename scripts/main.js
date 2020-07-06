@@ -12,7 +12,7 @@ localStorage.setItem('Collaboration', true);
 localStorage.setItem('Information', true);
 localStorage.setItem('Culture', true);
 localStorage.setItem('Transformation', true);
-localStorage.setItem('Political','all');
+localStorage.setItem('Political',false);
 localStorage.setItem('NumberDimension', 9);
 
 Chart.plugins.unregister(ChartDataLabels);

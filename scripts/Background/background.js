@@ -1,4 +1,13 @@
 $(document).ready(function(){
+	$('#modeType').click(function(){
+		if(JSON.parse(localStorage.getItem('Political'))) {
+			localStorage.setItem('Political', false);
+		} else {
+			localStorage.setItem('Political', true);
+		}
+		reloadCharts();
+    });
+	
     $('#domain').change(function(){
          localStorage.setItem('domain', $(this).val());
 		 reloadCharts();

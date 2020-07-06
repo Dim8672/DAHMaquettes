@@ -33,38 +33,8 @@ var barChartData = {
 			}]
 
 		};
-		window.onload = function() {
-			var ctx = document.getElementById('canvas').getContext('2d');
-			window.myBar = new Chart(ctx, {
-				plugins: [ChartDataLabels],
-				type: 'bar',
-				data: barChartData,
-				options: {
-					title: {
-						display: true,
-						text: 'Niveau de maturité'
-					},
-					tooltips: {
-						mode: 'index',
-						intersect: false
-					},
-					responsive: true,
-					scales: {
-						xAxes: [{
-							ticks: {
-								beginAtZero : true
-							},
-							stacked: true,
-							display: true
-						}],
-						yAxes: [{
-							ticks: {
-								beginAtZero : true
-							},
-							stacked: true,
-							display: true
-						}]
-					}
-				}
-			});
-		};
+
+
+function updateStackedBarChart(){
+	window.mybar.update();
+};
