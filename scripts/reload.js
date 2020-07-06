@@ -9,10 +9,10 @@ function reloadCharts() {
 	numberOfDimension();
 	document.getElementById('General').style.display="none";
 	document.getElementById('OnlySector').style.display="none";
+	document.getElementById('Political').style.display="none";
 	switch(state) {
 		case 'General' :
 		document.getElementById('General').style.removeProperty('display');
-		console.log("trigger");
 		updateRadar();
 		break;
 		
@@ -30,6 +30,10 @@ function reloadCharts() {
 		break;
 		
 		case 'Only1DimensionSize':
+		break;
+		
+		case 'Political':
+		document.getElementById('Political').style.removeProperty('display');
 		break;
 		
 		default:
@@ -94,10 +98,15 @@ function getState(){
 		Transformation : localStorage.getItem('Transformation'),
 		Strategy : localStorage.getItem('Strategy'),
 		Product : localStorage.getItem('Product'),
+		Political : localStorage.getItem('Political'),
 		NumberOfDimension : numberOfDimension()
 	}
 	
 	console.log(localStorageValues);
+	
+	if(localStorageValues.Political === 'all') {
+		return 'Political';
+	}
 	
 	if (localStorageValues.domain === 'all' && localStorageValues.size === 'all' && localStorageValues.NumberOfDimension > 1) {
 		return 'General';
