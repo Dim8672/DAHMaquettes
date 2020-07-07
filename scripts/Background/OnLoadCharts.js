@@ -1,5 +1,5 @@
 window.onload = function(){
-			// Chargement du chart "Polar"
+			// Chargement du chart "Polar".
 			var ctx2 = document.getElementById('chart-area');
 			window.myPolarArea = new Chart(ctx2, configPolar);
 			// Chargement du chart "Bar Stacked"
