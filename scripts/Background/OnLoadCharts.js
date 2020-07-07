@@ -1,7 +1,7 @@
 window.onload = function(){
 			// Chargement du chart "Polar"
 			var ctx2 = document.getElementById('chart-area');
-			window.myPolarArea = new Chart(ctx2, config);
+			window.myPolarArea = new Chart(ctx2, configPolar);
 			// Chargement du chart "Bar Stacked"
 			var ctx = document.getElementById('canvas').getContext('2d');
 			window.myBar = new Chart(ctx, {
@@ -36,4 +36,7 @@ window.onload = function(){
 					}
 				}
 			});
+
+			var ctx3 = document.getElementById('chart-area-doughnut').getContext('2d');
+			window.myDoughnut = new Chart(ctx3, configDoughnut);
 }
