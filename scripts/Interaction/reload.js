@@ -1,31 +1,25 @@
-function reloadCharts() {
+function reloadCharts(reloadData) {
 	var state = getState();
 	numberOfDimension();
 	document.getElementById('General').style.display="none";
-	document.getElementById('OnlySector').style.display="none";
-	document.getElementById('Political').style.display="none";
 	document.getElementById('DimensionFocus').style.display="none";
+	document.getElementById('Political').style.display="none";
+	document.getElementById('OnlyOneDimension').style.display="none";
 	switch(state) {
 		case 'General' :
 		document.getElementById('General').style.removeProperty('display');
-		updateRadar();
+		updateRadar(reloadData);
+		updateStackedBarChart(reloadData);
 		break;
 
-		case 'OnlySector':
-		document.getElementById('OnlySector').style.removeProperty('display');
-		break;
-
-		case 'OnlySize':
-		break;
-
-		case 'OnlyDimensionGeneral':
+		case 'OnlyDimension':
 		document.getElementById('DimensionFocus').style.removeProperty('display');
+		updateDoughnut(reloadData);
 		break;
 
-		case 'OnlyDimensionSector':
-		break;
-
-		case 'OnlyDimensionSize':
+		case 'OnlyOneDimension':
+		document.getElementById('OnlyOneDimension').style.removeProperty('display');
+		updateBarChart(reloadData);
 		break;
 
 		case 'Political':
@@ -105,27 +99,15 @@ function getState(){
 		return 'Political';
 	}
 
-	if (localStorageValues.domain === 'all' && localStorageValues.size === 'all' && localStorageValues.NumberOfDimension > 3) {
+	if (localStorageValues.NumberOfDimension >= 5) {
 		return 'General';
 	}
 
-	if (localStorageValues.domain != 'all' && localStorageValues.size === 'all' && localStorageValues.NumberOfDimension === 9) {
-		return 'OnlySector';
+	if (localStorageValues.NumberOfDimension < 5 && localStorageValues.NumberOfDimension > 1) {
+		return 'OnlyDimension';
 	}
 
-	if (localStorageValues.domain === 'all' && localStorageValues.size != 'all' && localStorageValues.NumberOfDimension === 9) {
-		return 'OnlySize';
-	}
-
-	if (localStorageValues.domain === 'all' && localStorageValues.size === 'all' && localStorageValues.NumberOfDimension <= 3) {
-		return 'OnlyDimensionGeneral';
-	}
-
-	if (localStorageValues.domain != 'all' && localStorageValues.size === 'all' && localStorageValues.NumberOfDimension <= 3) {
-		return 'OnlyDimensionSector';
-	}
-
-	if (localStorageValues.domain === 'all' && localStorageValues.size != 'all' && localStorageValues.NumberOfDimension <= 3) {
-		return 'OnlyDimensionSize';
+	if(localStorageValues.NumberOfDimension = 1){
+		return 'OnlyOneDimension';
 	}
 }

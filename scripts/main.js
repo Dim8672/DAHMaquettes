@@ -14,7 +14,7 @@ localStorage.setItem('Culture', true);
 localStorage.setItem('Transformation', true);
 localStorage.setItem('Political',false);
 localStorage.setItem('NumberDimension', 9);
-localStorage.setItem('choosenDimension',JSON.stringify(new Array('Information Technology','Culture & Expertise','Collaboration','Process Digitalisation','Organisation','Customer Experience','Transformation Management','Strategy','Production Innovation')));
+localStorage.setItem('choosenDimensions',JSON.stringify(new Array('Information Technology','Culture & Expertise','Collaboration','Process Digitalisation','Organisation','Customer Experience','Transformation Management','Strategy','Production Innovation')));
 
 Chart.plugins.unregister(ChartDataLabels);
 // var data = d3.json('DonneesTraitees.json');

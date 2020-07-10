@@ -22,9 +22,8 @@ window.chartColors = {
 		// 'Culture & Expertise',
 		// 'Transformation Management'
 	// ];
-	
+
 	var DIMENSION = JSON.parse(localStorage.getItem('choosenDimensions'));
-	console.log(DIMENSION);
 	var COLORS = [
 		'#4dc9f6',
 		'#f67019',
@@ -64,7 +63,7 @@ window.chartColors = {
 			max = max === undefined ? 1 : max;
 			this._seed = (seed * 9301 + 49297) % 233280;
 			return min + (this._seed / 233280) * (max - min);
-			
+
 		},
 
 		numbers: function(config) {
@@ -82,7 +81,6 @@ window.chartColors = {
 					data.push(null);
 				}
 			}
-			console.log(data);
 			return data;
 		},
 
@@ -107,7 +105,7 @@ window.chartColors = {
 
 		dimension: function(config) {
 			var cfg = config || {};
-			
+
 			var count = cfg.count || 5;
 			var section = cfg.section;
 			var values = [];
@@ -132,7 +130,7 @@ window.chartColors = {
 
 	// DEPRECATED
 	window.randomScalingFactor = function() {
-		return Math.round(Samples.utils.rand(-100, 100));
+		return Math.round(Samples.utils.rand(0, 10));
 	};
 
 	// INITIALIZATION

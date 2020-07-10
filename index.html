@@ -183,12 +183,22 @@
 <!-- Etat General -->
 <div id="General" class="row">
     <div class="col-lg-6">
+      <div class="center-div">
+      <div data-tooltip="Spider map de la maturité : Moyenne de la maturité par secteur des entreprises par dimension du modèle de maturité" data-tooltip-location="up">
+        <img id="TransformationClik" src="images/Information.png" style="width:70px;height:70px;">
+    	</div>
+      </div>
 		<div id="leftChart">
 		<canvas id="chart-0"></canvas>
 		</div>
     </div>
 	<div class="col-lg-1"></div>
     <div class="col-lg-4">
+      <div class="center-div">
+      <div data-tooltip="Histogramme de la maturité : Nombre d'entreprises par secteur avec leur niveau de maturité" data-tooltip-location="up">
+        <img id="TransformationClik" src="images/Information.png" style="width:70px;height:70px;">
+    	</div>
+      </div>
       <div id="rightChart" >
         <canvas id="canvas" style="margin-top : 15%;"></canvas>
       </div>
@@ -196,49 +206,47 @@
 	<div class="col-lg-1"></div>
 </div>
 
-<!-- Etat DimensionFocus -->
+<!-- Etat DimensionsFocus -->
 <div id="DimensionFocus" class="row">
+  <div class="col-lg-3"> </div>
     <div class="col-lg-6">
+      <div class="center-div">
+      <div data-tooltip="Doughnut de la maturité : Maturité par dimension et par secteur à des fins de comparaison" data-tooltip-location="up">
+        <img id="TransformationClik" src="images/Information.png" style="width:70px;height:70px;">
+    	</div>
+      </div>
 		<div id="leftChart">
       <canvas id="chart-area-doughnut"></canvas>
 		</div>
     </div>
-	<div class="col-lg-1"></div>
-    <div class="col-lg-4">
-      <div id="rightChart" >
-        <canvas id="canvas" style="margin-top : 15%;"></canvas>
-      </div>
-    </div>
-	<div class="col-lg-1"></div>
+    <div class="col-lg-3"></div>
+
 </div>
 
-<!-- Etat OnlySector -->
-
-<div id="OnlySector" class="row">
+<div id="OnlyOneDimension" class="row">
+  <div class="col-lg-3"> </div>
     <div class="col-lg-6">
+      <div class="center-div">
+      <div data-tooltip="Barchart de la maturité : Maturité par secteur pour une dimension" data-tooltip-location="up">
+        <img id="TransformationClik" src="images/Information.png" style="width:70px;height:70px;">
+    	</div>
+      </div>
 		<div id="leftChart">
-		<canvas id="chart-0"></canvas>
+      <canvas id="stackedBarOneDimension"></canvas>
 		</div>
     </div>
-	<div class="col-lg-1"></div>
-    <div class="col-lg-4">
-      <div id="rightChart" >
-        <canvas id="canvas" style="margin-top : 15%;"></canvas>
-      </div>
-    </div>
-	<div class="col-lg-1"></div>
+    <div class="col-lg-3"></div>
+
 </div>
 
 <!-- Etat Political -->
 <div id="Political" class="row">
 
 <div class="col-lg-6">
-<svg id="my_dataviz" width="1000" height="600" ></svg>
+    <svg id="my_dataviz" width="1000" height="600" ></svg>
 </div>
 <div class="col-lg-6" >
-
 		<canvas id="chart-area" ></canvas>
-
 </div>
 </div>
 
@@ -259,9 +267,10 @@
 <script src="scripts/Initialisation/daterangepicker.js"></script>
 <script src="scripts/charts/map.js"></script>
 <script src="scripts/charts/polarArea.js"></script>
-<script type="text/javascript" src="scripts/charts/radarChart.js"></script>
+<script src="scripts/charts/radarChart.js"></script>
 <script src="scripts/charts/stackedBar.js"></script>
-<script src="scripts/charts/doughnut.js"></script>
+<script type="text/javascript" src="scripts/charts/doughnut.js"></script>
+<script type="text/javascript" src="scripts/charts/barChartOnlyOneDimension.js"></script>
 <script src="scripts/Background/OnLoadCharts.js"></script>
 
 <!--<script src="scripts/radarChart.js"></script>-->.

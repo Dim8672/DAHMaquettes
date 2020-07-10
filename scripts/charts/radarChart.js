@@ -8,6 +8,21 @@
 			continuity: 1
 		};
 
+		function hideDomain(domain){
+			console.log("test");
+
+			if (localStorage.getItem('domain') == 'all') {
+				return false;
+			} else {
+					if (localStorage.getItem('domain') != domain){
+						return true;
+					} else {
+						return false;
+					}
+
+			}
+		}
+
 		function generateData() {
 			// radar chart doesn't support stacked values, let's do it manually
 			var values = utils.numbers(inputs);
@@ -19,32 +34,39 @@
 			return utils.dimension({count: inputs.count});
 		}
 
-		utils.srand(42);
-
-		var data = {
-			labels: generateLabels(),
-			datasets: [{
-				backgroundColor: '#11ffee00',
-				borderColor: presets.red,
-				data: generateData(),
-				label: 'Tourisme'
-			}, {
-				backgroundColor: '#11ffee00',
-				borderColor: presets.orange,
-				data: generateData(),
-				label: 'Banque',
-				fill: 1
-			}, {
-				backgroundColor: '#11ffee00',
-				borderColor: presets.green,
-				data: generateData(),
-				label: 'Santé',
-				fill: 1
-			}]
-		};
+		function generateDataRadar(){
+			var data = {
+				labels: generateLabels(),
+				datasets: [{
+					backgroundColor: '#11ffee00',
+					borderColor: presets.red,
+					data: generateData(),
+					label: 'Tourisme',
+					hidden : hideDomain('Tourisme')
+				}, {
+					backgroundColor: '#11ffee00',
+					borderColor: presets.orange,
+					data: generateData(),
+					label: 'Banque',
+					fill: 1,
+					hidden : hideDomain('Banque')
+				}, {
+					backgroundColor: '#11ffee00',
+					borderColor: presets.green,
+					data: generateData(),
+					label: 'Santé',
+					fill: 1,
+					hidden : hideDomain('Santé')
+				}]
+			};
+			return data;
+		}
 
 		var options = {
 			maintainAspectRatio: true,
+			legend: {
+                        onClick: (e) => e.stopPropagation()
+                    },
 			spanGaps: false,
 			elements: {
 				line: {
@@ -61,41 +83,24 @@
 			},
 			scale: {
 				ticks: {
-					backdropColor: '#D3D3D3' // should render black behind the text
+					backdropColor: '#D3D3D3'
 					}
 			}
 		};
 
-		var chart = new Chart('chart-0', {
-			type: 'radar',
-			data: data,
-			options: options
-		});
+		function updateRadar(newData){
+			if(newData){
+				window.myRadarChart.data = generateDataRadar();
+			} else {
+				window.myRadarChart.data.datasets[0].hidden = hideDomain('Tourisme');
+				window.myRadarChart.data.datasets[1].hidden = hideDomain('Banque');
+				window.myRadarChart.data.datasets[2].hidden = hideDomain('Santé');
+				window.myRadarChart.data.labels = JSON.parse(localStorage.getItem('choosenDimensions'));
+			}
+			window.myRadarChart.update();
 
-		function updateRadar(){
-			chart.data.datasets[0].data = chart.data.datasets[0].data;
-			chart.data.labels = JSON.parse(localStorage.getItem('choosenDimensions'));
-			chart.update();
-		}
-		// eslint-disable-next-line no-unused-vars
-		function togglePropagate(btn) {
-			var value = btn.classList.toggle('btn-on');
-			chart.options.plugins.filler.propagate = value;
-			chart.update();
 		}
 
-		// eslint-disable-next-line no-unused-vars
-		function toggleSmooth(btn) {
-			var value = btn.classList.toggle('btn-on');
-			chart.options.elements.line.tension = value ? 0.4 : 0.000001;
-			chart.update();
-		}
-
-		// eslint-disable-next-line no-unused-vars
-		function randomize() {
-			inputs.from = [];
-			chart.data.datasets.forEach(function(dataset) {
-				dataset.data = generateData();
-			});
-			chart.update();
+		function resetRadar(){
+			window.myRadarChart.reset();
 		}
