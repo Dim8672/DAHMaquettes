@@ -1,4 +1,3 @@
-// Génération du Barchart
 function generateDataBarChartOnlyOneDimension(){
 	var barChartData = {
 			labels: [1, 2, 3, 4, 5],
