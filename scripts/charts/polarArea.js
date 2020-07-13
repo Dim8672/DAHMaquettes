@@ -1,25 +1,35 @@
+var utils = Samples.utils;
+var inputs = {
+	min: 0,
+	max: 5,
+	count: JSON.parse(localStorage.getItem('NumberDimension')),
+	decimals: 0,
+	continuity: 1
+};
+
 var randomScalingFactor = function() {
 			return Math.round(Math.random() * 100);
 		};
 
+function generateDataPolar(){
+	inputs.count = JSON.parse(localStorage.getItem('NumberDimension'));
+	var values = utils.numbers(inputs);
+	inputs.from = values;
+	return values;
+}
+
+function generateLabelsPolar() {
+	console.log("Test : " + utils.dimension({count: inputs.count}))
+	return utils.dimension({count: inputs.count});
+}
+
 		var chartColors = window.chartColors;
-		console.log(chartColors);
 		var color = Chart.helpers.color;
 		var configPolar = {
 			type: 'polarArea',
 			data: {
 				datasets: [{
-					data: [
-						5,
-						3,
-						2,
-						1,
-						4,
-						3,
-						2,
-						3,
-						5
-					],
+					data: generateDataPolar(),
 					backgroundColor: [
 						color(chartColors.red).alpha(0.5).rgbString(),
 						color(chartColors.orange).alpha(0.5).rgbString(),
@@ -33,17 +43,7 @@ var randomScalingFactor = function() {
 					],
 					label: 'My dataset' // for legend
 				}],
-				labels: [
-					'Customer Exeprience',
-					'Strategy',
-					'Innovation Product',
-					'Organisation',
-					'Collaboration',
-					'Process',
-					'Information Technology',
-					'Culture',
-					'Transformation'
-				]
+				labels: generateLabelsPolar()
 			},
 			options: {
 				responsive: true,
@@ -67,3 +67,17 @@ var randomScalingFactor = function() {
 				}
 			}
 		};
+
+		function updatePolar(newData){
+			if(newData){
+				window.myPolarArea.data.datasets[0].data = generateDataPolar();
+			} else {
+				JSON.parse(localStorage.getItem('choosenDimensions'));
+				window.myPolarArea.data.datasets[0].data = generateDataPolar();
+		}
+			window.myPolarArea.update();
+		}
+
+		function resetPolar(){
+			window.myPolarArea.reset();
+		}

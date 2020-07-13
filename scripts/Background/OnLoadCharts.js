@@ -21,6 +21,9 @@ window.onload = function(){
 						display: true,
 						text: 'Niveau de maturité'
 					},
+					legend: {
+		                        onClick: (e) => e.stopPropagation()
+		                    },
 					tooltips: {
 						mode: 'index',
 						intersect: false

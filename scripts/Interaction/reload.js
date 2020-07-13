@@ -24,6 +24,7 @@ function reloadCharts(reloadData) {
 
 		case 'Political':
 		document.getElementById('Political').style.removeProperty('display');
+		updatePolar(reloadData);
 		break;
 
 		default:
@@ -92,10 +93,7 @@ function getState(){
 		NumberOfDimension : numberOfDimension()
 	}
 
-	console.log(localStorageValues);
-
 	if(localStorageValues.Political === true) {
-		console.log("Etat : Politique");
 		return 'Political';
 	}
 

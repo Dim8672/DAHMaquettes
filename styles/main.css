@@ -28,7 +28,7 @@ header {
 }
 
 a:link {
-  color: green;
+  color: #BBB9B9;
   background-color: transparent;
   text-decoration: underline;
 }
@@ -45,7 +45,7 @@ a:link {
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
-  
+
 }
 
 /* Customize container */

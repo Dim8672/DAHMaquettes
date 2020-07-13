@@ -9,8 +9,6 @@
 		};
 
 		function hideDomain(domain){
-			console.log("test");
-
 			if (localStorage.getItem('domain') == 'all') {
 				return false;
 			} else {
