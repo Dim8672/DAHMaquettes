@@ -1,3 +1,4 @@
+//
 		var presets = window.chartColors;
 		var utils = Samples.utils;
 		var inputs = {

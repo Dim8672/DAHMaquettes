@@ -1,3 +1,4 @@
+//
 function reloadCharts(reloadData) {
 	var state = getState();
 	numberOfDimension();

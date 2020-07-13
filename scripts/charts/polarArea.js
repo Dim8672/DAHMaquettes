@@ -1,3 +1,4 @@
+//
 var utils = Samples.utils;
 var inputs = {
 	min: 0,
