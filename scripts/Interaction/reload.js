@@ -5,6 +5,7 @@ function reloadCharts(reloadData) {
 	document.getElementById('General').style.display="none";
 	document.getElementById('DimensionFocus').style.display="none";
 	document.getElementById('Political').style.display="none";
+	document.getElementById('DonneesBrutes').style.display="none";
 	document.getElementById('OnlyOneDimension').style.display="none";
 	switch(state) {
 		case 'General' :
@@ -25,6 +26,11 @@ function reloadCharts(reloadData) {
 
 		case 'Political':
 		document.getElementById('Political').style.removeProperty('display');
+		updatePolar(reloadData);
+		break;
+
+		case 'DonneesBrutes':
+		document.getElementById('DonneesBrutes').style.removeProperty('display');
 		updatePolar(reloadData);
 		break;
 
@@ -91,11 +97,16 @@ function getState(){
 		Strategy : localStorage.getItem('Strategy'),
 		Product : localStorage.getItem('Product'),
 		Political : JSON.parse(localStorage.getItem('Political')),
+		DonneesBrutes : JSON.parse(localStorage.getItem('DonneesBrutes')),
 		NumberOfDimension : numberOfDimension()
 	}
 
 	if(localStorageValues.Political === true) {
 		return 'Political';
+	}
+
+	if(localStorageValues.DonneesBrutes === true) {
+		return 'DonneesBrutes';
 	}
 
 	if (localStorageValues.NumberOfDimension >= 5) {

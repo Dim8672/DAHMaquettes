@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#modeType').click(function(){
+	$('#modeTypePolitical').click(function(){
 		if(JSON.parse(localStorage.getItem('Political'))) {
 			localStorage.setItem('Political', false);
 		} else {
@@ -7,6 +7,16 @@ $(document).ready(function(){
 		}
 		reloadCharts(true);
     });
+
+
+	$('#modeTypeStat').click(function(){
+				if(JSON.parse(localStorage.getItem('DonneesBrutes'))) {
+					localStorage.setItem('DonneesBrutes', false);
+				} else {
+					localStorage.setItem('DonneesBrutes', true);
+				}
+				reloadCharts(true);
+		    });
 
     $('#domain').change(function(){
          localStorage.setItem('domain', $(this).val());

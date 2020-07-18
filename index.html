@@ -16,6 +16,7 @@
   <!--  <link rel="stylesheet" href="styles/head.css">-->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href='https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
 
@@ -39,6 +40,14 @@
   <!--<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>-->
   <!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
 <script src="https://d3js.org/topojson.v1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
   <script src="scripts/main.js"></script>
   <script src="utils.js"></script>
   <script src="analyzer.js"></script>
@@ -62,14 +71,24 @@
       </div>
       </div>
       </div>
+      <div>
 	  <span class="navbar-text">
       Passer en mode politique
 	  <label class="switch">
 		<input type="checkbox">
-		<span id="modeType" class="slider round"></span>
+		<span id="modeTypePolitical" class="slider round"></span>
 		</label>
     </span>
-
+  </div>
+<div>
+    <span class="navbar-text">
+      Passer en mode données brutes
+	  <label class="switch">
+		<input type="checkbox">
+		<span id="modeTypeStat" class="slider round"></span>
+		</label>
+    </span>
+</div>
 	  </div>
 
 
@@ -302,6 +321,17 @@
 		<canvas id="chart-area" ></canvas>
 </div>
 </div>
+
+<!-- Etat DonneesBrutes -->
+<div id="DonneesBrutes" class="row">
+<div class="col-lg-1"> </div>
+<div class="col-lg-10">
+  <table id="example" class="display nowrap" width="100%"></table>
+</div>
+<div class="col-lg-1" >
+
+</div>
+</div>
 <!-- build:js scripts/vendor.js -->
 
 <!-- endbuild -->
@@ -310,10 +340,12 @@
 <script src="scripts/Interaction/filters.js"></script>
 <script src="scripts/Initialisation/daterangepicker.js"></script>
 <!--<script src="scripts/charts/map.js"></script>-->
+<script src="DonneesTraitees.json"></script>
 <script src="scripts/charts/map2.js"></script>
 <script src="scripts/charts/polarArea.js"></script>
 <script src="scripts/charts/radarChart.js"></script>
 <script src="scripts/charts/stackedBar.js"></script>
+<script src="scripts/charts/dataTable.js"></script>
 <script type="text/javascript" src="scripts/charts/doughnut.js"></script>
 <script type="text/javascript" src="scripts/charts/barChartOnlyOneDimension.js"></script>
 <script src="scripts/Background/OnLoadCharts.js"></script>
